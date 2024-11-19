@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESP IoT Firebase App</title>
+    
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-database.js"></script>
+
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
+
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Firebase Initialization -->
+    <script>
+        
+      const firebaseConfig = {
+        apiKey: "API_KEY",
+        authDomain: "esp-firebase-demo-80c02.firebaseapp.com",
+        databaseURL: "https://esp-firebase-demo-80c02-default-rtdb.asia-southeast1.firebasedatabase.app",
+        projectId: "esp-firebase-demo-80c02",
+        storageBucket: "esp-firebase-demo-80c02.appspot.com",
+        messagingSenderId: "246732532837",
+        appId: "1:246732532837:web:d32cedcbfe02c333546a8c"
+      };
+
+      firebase.initializeApp(firebaseConfig);
+      const auth = firebase.auth();
+      const db = firebase.database();
+    </script>
+</head>
+
+<body>
+    <!-- Top Navigation Bar -->
+    <div class="topnav">
+        <h1>Sensor Readings App <i class="fas fa-clipboard-list"></i></h1>
+    </div>
+
+    <!-- Authentication Box with Logout Button at the bottom -->
+    <div id="authentication-bar" style="display: none;">
+        <div class="auth-container">
+            <p id="user-details">Logged in: <span id="user-email">USEREMAIL</span></p>
+            <button id="logout-button" class="logout-btn">Logout</button>
+        </div>
+    </div>
+
+    <!-- Login Form -->
+    <form id="login-form" style="display: none;">
+        <div class="form-elements-container">
+            <label for="input-email"><b>Email</b></label>
+            <input type="text" placeholder="Enter Username" id="input-email" required>
+
+            <label for="input-password"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" id="input-password" required>
+
+            <button type="submit" id="login-button">Login</button>
+            <p id="error-message" style="color:red;"></p>
+        </div>
+    </form>
+
+    <!-- Content (Sensor Readings) -->
+    <div class="content" id="content-sign-in" style="display: none;">
+        <div class="cards">
+            <!-- Temperature -->
+            <div class="card">
+                <p><i class="fas fa-thermometer-half" style="color:#059e8a;"></i> TEMPERATURE</p>
+                <p><span class="reading"><span id="temp"></span> &deg;C</span></p>
+            </div>
+            <!-- Humidity -->
+            <div class="card">
+                <p><i class="fas fa-tint" style="color:#00add6;"></i> HUMIDITY</p>
+                <p><span class="reading"><span id="hum"></span> &percnt;</span></p>
+            </div>
+            
+        </div>
+    </div>
+
+    <script src="scripts/auth.js"></script>
+    <script src="scripts/index.js"></script>
+</body>
+</html>
