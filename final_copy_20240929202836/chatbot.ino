@@ -4,9 +4,9 @@
 #include <ArduinoJson.h>
 #include <WebServer.h>
 
-const char* ssid = “Hotspot”;  // Replace with your WiFi SSID
-const char* password = "PASS";  // Replace with your WiFi password
-const char* Gemini_Token = "AIzaSyD_B-WPmvOleqXOHNwx4qgc5X3wVyYirho";  // Your API token
+const char* ssid = “ssidt”;  // Replace with your WiFi SSID
+const char* password = "password";  // Replace with your WiFi password
+const char* Gemini_Token = "gemini_token";  // Your API token
 const char* Gemini_Max_Tokens = "100”;  // Maximum tokens for the API
 String res = "";
 
